@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Catnip</string>
+    <string name="hello_round">Hello Round World!</string>
+    <string name="hello_square">Hello Square World!</string>
+    <string name="title_activity_candidates">Candidates</string>
+    <string name="name">Abe Lincoln</string>
+    <string name="party">Republican</string>
+    <string name="title_activity_custom_fragment">CustomFragment</string>
+    <string name="title_activity_county">County</string>
+</resources>
