@@ -1,20 +1,29 @@
 # PROG 02: Represent!
 
-Briefly describe your app here.
+User can input a zip code or use their phone location to find out who their local representatives are, their last twitter message, and even contact them via E-mail. 
+
+A more detailed view is also available if user wants to know some of the committees a certain rep is on and their recent sponsered bills. 
+
+Has some minor interactions with a smartwatch.
 
 ## Authors
 
-FirstName LastName ([your_email@berkeley.edu](mailto:your_email@berkeley.edu))
+Huahong Dai([tonydai8808@berkeley.edu](mailto:tonydai8808@berkeley.edu))
 
 ## Demo Video
 
-See [your demo video title here] (https://link_to_your_video)
+See [demo] (https://link_to_your_video)
 
 ## Screenshots
 
 <img src="screenshots/main.png" height="400" alt="Screenshot"/>
 
+<img src="screenshots/listing.png" height="400" alt="Screenshot"/>
+
+<img src="screenshots/details.png" height="400" alt="Screenshot"/>
+
 ## Acknowledgments
 
-* Hat tip to anyone who's code was used
-* Any other support
+
+Stackoverflow
+Android tutorial throughout the web
