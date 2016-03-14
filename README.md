@@ -12,7 +12,7 @@ Huahong Dai([tonydai8808@berkeley.edu](mailto:tonydai8808@berkeley.edu))
 
 ## Demo Video
 
-See [demo] (https://link_to_your_video)
+See [demo] (https://vimeo.com/158875746)
 
 ## Screenshots
 
@@ -23,7 +23,6 @@ See [demo] (https://link_to_your_video)
 <img src="screenshots/details.png" height="400" alt="Screenshot"/>
 
 ## Acknowledgments
-
 
 Stackoverflow
 Android tutorial throughout the web
