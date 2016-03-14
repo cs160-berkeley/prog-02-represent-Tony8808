@@ -4,21 +4,38 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.wearable.view.GridViewPager;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowInsets;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.InputStream;
+import java.net.URL;
+
 public class Candidates extends Activity implements SensorEventListener {
 
     private TextView mTextView;
-    protected String zip = "hello";
+    protected String zip = "";
+    protected String[] bio = new String[3];
+    protected String[] name = new String[3];
+    protected String[] party = new String[3];
+    protected Bitmap[] pics = new Bitmap[3];
+    protected String county;
+    protected String oba;
+    protected String rom;
+
+    private String sunImage = "https://theunitedstates.io/images/congress/225x275/";
+    private String ext = ".jpg";
 
     //Used code from http://code.tutsplus.com/tutorials/using-the-accelerometer-on-android--mobile-22125
     //for accelerometer
@@ -65,6 +82,30 @@ public class Candidates extends Activity implements SensorEventListener {
         Bundle extra = intent.getExtras();
 
         zip = extra.getString("Zip");
+
+        String[] parts = zip.split("&");
+        for (int i = 0; i<parts.length - 1;i++){
+            String[] elems = parts[i].split(";");
+            bio[i] = elems[0];
+            name[i] = elems[1];
+            party[i] = elems[2];
+            Log.v("elements",bio[i] + " " + name[i] + " " + party[i]  );
+        }
+
+        //getting images
+        try {
+            new LoadImage().execute(sunImage+bio[0]+ext,"0").get();
+            new LoadImage().execute(sunImage+bio[1]+ext,"1").get();
+            new LoadImage().execute(sunImage+bio[2]+ext,"2").get();
+        }catch (Exception e){
+            Log.d("get failed","yes");
+        }
+
+        String[] perc = parts[parts.length - 1].split(";");
+        county = perc[0];
+        oba = perc[1];
+        rom = perc[2];
+        Log.v("percentages", oba + " " + rom);
 
         senSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         senAccelerometer = senSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
@@ -123,5 +164,38 @@ public class Candidates extends Activity implements SensorEventListener {
     protected void onResume() {
         super.onResume();
         senSensorManager.registerListener(this, senAccelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+    }
+
+    private class LoadImage extends AsyncTask<String, String, Bitmap> {
+
+        Bitmap bitmap;
+        String who;
+
+        protected Bitmap doInBackground(String... args) {
+            try {
+                bitmap = BitmapFactory.decodeStream((InputStream) new URL(args[0]).getContent());
+                who = args[1];
+                Log.d("Image address", args[0]);
+                Log.d("Who for image",who);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return bitmap;
+        }
+
+        protected void onPostExecute(Bitmap image) {
+
+            int i = Integer.valueOf(who);
+
+            if(image != null){
+                pics[i] = image;
+
+            } else {
+
+                Toast.makeText(Candidates.this, "Image Does Not exist or Network Error", Toast.LENGTH_SHORT).show();
+
+            }
+        }
     }
 }

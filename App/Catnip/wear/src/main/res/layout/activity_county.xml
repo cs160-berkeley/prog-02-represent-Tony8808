@@ -27,22 +27,12 @@
         android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="2012 Presidential County Results:"
+        android:text="2012 Presidential County Results for"
         android:id="@+id/textView"
         android:layout_gravity="center_horizontal|top"
         android:textColor="#7e7e7e"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:textSize="15dp" />
-
-    <TextView
-        android:id="@+id/testt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal|bottom"
-        android:layout_margin="8dp"
-        android:text="Zip Code:"
-        android:textColor="@color/primary_text_light"
-        android:textSize="18dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -64,11 +54,11 @@
             android:layout_height="match_parent"></FrameLayout>
 
         <TextView
-            android:layout_width="68dp"
+            android:layout_width="61dp"
             android:layout_height="60dp"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Obama    50%"
-            android:id="@+id/textView3"
+            android:text="Obama  %"
+            android:id="@+id/obamaP"
             android:textColor="#6082fe" />
 
         <TextView
@@ -79,12 +69,13 @@
             android:textColor="#6082fe" />
 
         <TextView
-            android:layout_width="84dp"
+            android:layout_width="65dp"
             android:layout_height="54dp"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Romney 50%"
-            android:id="@+id/textView5"
-            android:textColor="#fc2b3c" />
+            android:text="Romney %"
+            android:id="@+id/romneyP"
+            android:textColor="#fc2b3c"
+            android:layout_marginLeft="5dp" />
     </LinearLayout><![CDATA[
 
     />

@@ -33,7 +33,7 @@ public class MainActivity extends Activity {
 
                 Intent test = new Intent(getBaseContext(), Candidates.class);
                 test.putExtra("Zip","test");
-                startActivity(test);
+                //startActivity(test);
             }
         });
 

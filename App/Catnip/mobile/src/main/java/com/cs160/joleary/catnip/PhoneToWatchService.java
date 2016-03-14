@@ -50,7 +50,7 @@ public class PhoneToWatchService extends Service {
         //NEED TO EDIT FOR ALL CASES WHEN THIS SERVICE IS CALLED
         if( intent != null) {
             Bundle extras = intent.getExtras();
-            final String catName = extras.getString("CAT_NAME");
+            final String catName = extras.getString("Message");
             // Send the message with the cat name
             new Thread(new Runnable() {
                 @Override
@@ -58,7 +58,7 @@ public class PhoneToWatchService extends Service {
                     //first, connect to the apiclient
                     mApiClient.connect();
                     //now that you're connected, send a massage with the cat name
-                    sendMessage("/" + catName, catName);
+                    sendMessage("/" + catName, catName); //!!!!!
                 }
             }).start();
         } else {

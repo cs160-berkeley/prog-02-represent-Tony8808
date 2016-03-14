@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="link">#58A3FE</color>
+    <color name="Republican">#ed4337</color>
+    <color name="Democrat">#2356fd</color>
+    <color name="Indep">#039900</color>
+    <color name="boxBack">#e8e6e6</color>
+    <color name="textBlack">#363636</color>
+</resources>

@@ -22,14 +22,24 @@ public class County extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         Log.v("County", "onActivityCreated()");
-        TextView text = (TextView) getView().findViewById(R.id.Zip);
+
         Intent in = getActivity().getIntent();
         Bundle extras = in.getExtras();
         if (extras != null){
+            Log.v("Test",in.getStringExtra("Zip"));
             //text.setText(extras.getString("Zip"));
         }
+
+        //get from candidates field
+        TextView text = (TextView) getView().findViewById(R.id.Zip);
+        TextView obamaText = (TextView) getView().findViewById(R.id.obamaP);
+        TextView romText = (TextView) getView().findViewById(R.id.romneyP);
         Candidates can = (Candidates) getActivity();
-        text.setText(can.zip);
+        String oba = can.oba;
+        String rom = can.rom;
+        text.setText(can.county);
+        obamaText.setText("Obama " + oba + "%");
+        romText.setText("Romney " + rom + "%");
 
     }
 

@@ -3,22 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:gravity="center" android:layout_gravity="center"
     tools:context=".MainActivity" android:orientation="vertical" tools:deviceIds="wear_round"
-    android:background="@drawable/food_bg_160">
-
-    <TextView android:id="@+id/time" android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:textColor="#FFFFFF"
-        android:textSize="36sp"
-        android:layout_marginTop="80dp"
-        android:layout_gravity="center_horizontal" />
+    android:background="@drawable/us_background">
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Meow"
+        android:text="Represent"
         android:id="@+id/feed_btn"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/layout_border"
+        android:textColor="@color/textBlack"
+        android:alpha=".9" />
 
 
 </LinearLayout>

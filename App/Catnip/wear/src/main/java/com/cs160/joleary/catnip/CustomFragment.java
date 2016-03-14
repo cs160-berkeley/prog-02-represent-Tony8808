@@ -12,9 +12,9 @@ import android.widget.TextView;
 
 public class CustomFragment extends Fragment {
 
-    //public CustomFragment (int page){
-
-    //}
+    TextView na;
+    TextView pa;
+    ImageButton button;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -25,10 +25,34 @@ public class CustomFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        Log.v("CustomFragment", "onActivityCreated()");
-        TextView text = (TextView) getView().findViewById(R.id.testt);
-        ImageButton button = (ImageButton) getView().findViewById(R.id.imageButton);
+        na = (TextView) getView().findViewById(R.id.name);
+        pa = (TextView) getView().findViewById(R.id.party);
+        button = (ImageButton) getView().findViewById(R.id.imageButton);
 
+        Bundle bun = getArguments();
+        int who = bun.getInt("Who");
+
+        //get from candidates activity fields
+        Candidates can = (Candidates) getActivity();
+
+        String name = can.name[who];
+        String party = can.party[who];
+        final String bio = can.bio[who];
+
+        na.setText(name);
+
+        if (party.equals("R")) {
+            pa.setText("Republican");
+            pa.setTextColor(getResources().getColor(R.color.Republican));
+        } else if (party.equals("D")){
+            pa.setText("Democrat");
+            pa.setTextColor(getResources().getColor(R.color.Democrat));
+        } else {
+            pa.setText("Independent");
+            pa.setTextColor(getResources().getColor(R.color.Indep));
+        }
+
+        Log.v("Who",String.valueOf(who)+ " " + bio + " " + name + " " + party);
 
         //text.setText("HELLO");
         button.setOnClickListener(new View.OnClickListener() {
@@ -36,20 +60,28 @@ public class CustomFragment extends Fragment {
             public void onClick(View v) {
                 //send to phone from watch
                 Intent sendIntent = new Intent(getContext(), WatchToPhoneService.class);
+                sendIntent.putExtra("Bio",bio);
                 getContext().startService(sendIntent);
 
-                //testing
-                //Intent test = new Intent(getContext(), MainActivity.class);
-                //startActivity(test);
             }
         });
+
+        button.setImageBitmap(can.pics[who]);
 
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        Log.v("CustomFragment", "onActivityCreated()");
+
+
+
+
 
         return inflater.inflate(R.layout.activity_custom_fragment, container, false);
+
     }
+
+
 }

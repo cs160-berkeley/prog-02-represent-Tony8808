@@ -66,24 +66,11 @@ public class WatchToPhoneService extends Service implements GoogleApiClient.Conn
                         //when we find a connected node, we populate the list declared above
                         //finally, we can send a message
 
-                        //decide if see details or a shake
-                        Bundle bun = null;
-                        if (in != null) {
-                            Log.d("T", "intent not null!");
-                            bun = in.getExtras();
-                        }
-
-                        if (bun != null) {
-                            String shake = bun.getString("Shake");
-                            if (shake != null && shake == "True") {
-                                sendMessage("/shake", "shake");
-                                Log.d("T", "sent shake!!!");
-                                return;
-                            }
-                        }
+                        String bio = in.getStringExtra("Bio");
+                        Log.v("Bio value for button",bio);
 
 
-                        sendMessage("/send_toast", "Good job!");
+                        sendMessage("/send_toast", bio);
                         Log.d("T", "sent");
                     }
                 });

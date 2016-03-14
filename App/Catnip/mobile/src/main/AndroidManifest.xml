@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cs160.joleary.catnip">
 
+    <!--Allow Internet-->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,6 +20,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!--API KEY-->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBeB_7gRweYquBnKJOmWgk3PY-oUEVEWaA"/>
 
         <service android:name=".PhoneToWatchService" />
         <!-- Listeners are special services that need to be declared like below, as BIND_LISTENER -->
@@ -43,6 +52,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.cs160.joleary.catnip.Listing" />
         </activity>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="a6493027eb3a66566f5f883ef70b61e279cc8667" />
     </application>
 
 </manifest>

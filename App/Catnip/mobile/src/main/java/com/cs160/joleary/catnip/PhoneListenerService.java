@@ -32,8 +32,8 @@ private static final String TOAST = "/send_toast";
             int duration = Toast.LENGTH_SHORT;
 
             Toast toast = Toast.makeText(context, value, duration);
-            toast.show();
-            String info = "Details";
+            //toast.show();
+            String info = value;
 
 
             Intent seeDetails = new Intent(context, Details.class);
@@ -54,12 +54,19 @@ private static final String TOAST = "/send_toast";
 
             Intent seeList = new Intent(context, Listing.class);
             seeList.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+            //fake and terrible random
             Random randomGenerator = new Random();
-            int longitude = randomGenerator.nextInt(180) - 90;
-            int lattitude = randomGenerator.nextInt(360) - 180;
-            String location =  "Lat: "+ String.valueOf(lattitude) + "Long: " + String.valueOf(longitude);
+            int latitude = randomGenerator.nextInt(10) + 35;
+            int longitude = randomGenerator.nextInt(30) - 120;
+            String location =  "Lat: "+ String.valueOf(latitude) + "Long: " + String.valueOf(longitude);
             seeList.putExtra("Zip Code", location);
-            seeList.putExtra("shake", "True");
+            seeList.putExtra("Shake", true);
+            seeList.putExtra("Current", true);
+            seeList.putExtra("Lat",String.valueOf(latitude));
+            seeList.putExtra("Long",String.valueOf(longitude));
+
+            Log.d("Lat lon vals",location);
 
             startActivity(seeList);
 
